@@ -30,7 +30,7 @@ public class SPAnimationUpward {
     static func hide(_ duration: TimeInterval,
                    view: UIView,
                    delay: TimeInterval = 0,
-                   withComplection completion: (() -> Void)! = {}) {
+                   withCompletion completion: (() -> Void)! = {}) {
         
         var options: UIViewAnimationOptions = []
         options.insert(.curveEaseIn)
@@ -42,7 +42,7 @@ public class SPAnimationUpward {
             },
             delay: delay,
             options: options,
-            withComplection: { finished in
+            withCompletion: { finished in
                 completion()
                 
         })
@@ -51,13 +51,13 @@ public class SPAnimationUpward {
     static func hideList(_ duration: TimeInterval = durationListAnimation,
                        views: [UIView],
                        delayPerItem: TimeInterval = delayPerItem,
-                       withComplection completion: (() -> Void)! = {}) {
+                       withCompletion completion: (() -> Void)! = {}) {
         
         var del: Double = 0
         for view in views {
             delay(del, closure: {
                 if (view == views.last) {
-                    SPAnimationUpward.hide(duration, view: view, withComplection: {
+                    SPAnimationUpward.hide(duration, view: view, withCompletion: {
                         completion()
                     })
                 } else {
@@ -72,7 +72,7 @@ public class SPAnimationUpward {
     static func show(_ duration: TimeInterval,
                    view: UIView,
                    delay: TimeInterval = 0,
-                   withComplection completion: (() -> Void)! = {}) {
+                   withCompletion completion: (() -> Void)! = {}) {
         
         view.alpha = 0
         view.isHidden = false
@@ -88,7 +88,7 @@ public class SPAnimationUpward {
             },
             delay: delay,
             options: options,
-            withComplection: { finished in
+            withCompletion: { finished in
                 completion()
         })
     }
@@ -97,13 +97,13 @@ public class SPAnimationUpward {
                        views: [UIView],
                        delayPerItem: TimeInterval = delayPerItem,
                        options: UIViewAnimationOptions = [],
-                       withComplection completion: (() -> Void)! = {}) {
+                       withCompletion completion: (() -> Void)! = {}) {
         
         var del: Double = 0
         for view in views {
             delay(del, closure: {
                 if (view == views.last) {
-                    SPAnimationUpward.show(duration, view: view, withComplection: {
+                    SPAnimationUpward.show(duration, view: view, withCompletion: {
                         completion()
                     })
                 } else {
