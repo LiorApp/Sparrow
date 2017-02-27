@@ -32,7 +32,7 @@ public class SPAnimationSpring {
                         spring: CGFloat = spring,
                         velocity: CGFloat = velocity,
                         options: UIViewAnimationOptions = [],
-                        withComplection completion: (() -> Void)! = {}) {
+                        withCompletion completion: (() -> Void)! = {}) {
         
         UIView.animate(
             withDuration: duration,
@@ -47,23 +47,23 @@ public class SPAnimationSpring {
         })
     }
     
-    static func animateWithRepeatition(_ duration: TimeInterval,
+    static func animateWithRepetition(_ duration: TimeInterval,
                                        animations: (() -> Void)!,
                                        delay: TimeInterval = 0,
                                        spring: CGFloat = spring,
                                        velocity: CGFloat = velocity,
                                        options: UIViewAnimationOptions = [],
-                                       withComplection completion: (() -> Void)! = {}) {
+                                       withCompletion completion: (() -> Void)! = {}) {
         
         var optionsWithRepeatition = options
-        optionsWithRepeatition.insert([.autoreverse, .repeat])
+        optionsWithRepetition.insert([.autoreverse, .repeat])
         
         UIView.animate(
             withDuration: duration,
             delay: delay,
             usingSpringWithDamping: spring,
             initialSpringVelocity: velocity,
-            options: optionsWithRepeatition,
+            options: optionsWithRepetition,
             animations: {
                 animations()
             }, completion: { finished in
