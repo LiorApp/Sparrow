@@ -27,7 +27,7 @@ public class SPAnimation {
                         animations: (() -> Void)!,
                         delay: TimeInterval = 0,
                         options: UIViewAnimationOptions = [],
-                        withComplection completion: (() -> Void)! = {}) {
+                        withCompletion completion: (() -> Void)! = {}) {
         
         UIView.animate(
             withDuration: duration,
@@ -40,14 +40,14 @@ public class SPAnimation {
         })
     }
     
-    static func animateWithRepeatition(_ duration: TimeInterval,
+    static func animateWithRepetition(_ duration: TimeInterval,
                                        animations: (() -> Void)!,
                                        delay: TimeInterval = 0,
                                        options: UIViewAnimationOptions = [],
-                                       withComplection completion: (() -> Void)! = {}) {
+                                       withCompletion completion: (() -> Void)! = {}) {
         
-        var optionsWithRepeatition = options
-        optionsWithRepeatition.insert([.autoreverse, .repeat])
+        var optionsWithRepetition = options
+        optionsWithRepetition.insert([.autoreverse, .repeat])
         
         self.animate(
             duration,
@@ -55,7 +55,7 @@ public class SPAnimation {
                 animations()
             },
             delay:  delay,
-            options: optionsWithRepeatition,
+            options: optionsWithRepetition,
             withComplection: { finished in
                 completion()
         })
